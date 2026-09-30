@@ -8,7 +8,7 @@
 }
 
 .producto {
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-de-fondo);
     padding: 15px;
     border-radius: 8px;
     text-align: center;
