@@ -1,7 +1,7 @@
 import styles from './Header.module.css'
 
 function SeparadorDeLinks() {
-    return <>&nbsp; | &nbsp;</>
+    return <>&nbsp;</>
 }
 
 function Header() {
@@ -15,7 +15,7 @@ function Header() {
                 <SeparadorDeLinks/>
                 <a href="#contacto">Contacto</a>
                 <SeparadorDeLinks/>
-                <a href="#carrito">Carrito</a>
+                <a href="#carrito">🛒 Carrito</a>
             </nav>
         </header>
     );
