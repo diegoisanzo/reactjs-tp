@@ -4,20 +4,20 @@
     "nombre": "Camara Instantánea",
     "precio": 85000,
     "stock": 22,
-    "imagen": "/images/CamaraInstantanea.png"
+    "imagen": "/images/productos/CamaraInstantanea.png"
   },
   {
     "id": 2,
     "nombre": "Camara Nikon",
     "precio": 97500,
     "stock": 2,
-    "imagen": "/images/CamaraNikon.jpg"
+    "imagen": "/images/productos/CamaraNikon.jpg"
   },
   {
     "id": 3,
     "nombre": "Monitor Curvo",
     "precio": 110000,
     "stock": 2,
-    "imagen": "/images/MonitorCurvo.jpg"
+    "imagen": "/images/productos/MonitorCurvo.jpg"
   }
 ]
