@@ -4,27 +4,27 @@
     "nombre": "Daiana Sanzo",
     "email": "daiana.sanzo@gmail.com",
     "puesto": "Artist",
-    "foto": "Artista.png"
+    "foto": "/images/nosotros/Artista.png"
   },
   {
     "id": 2,
     "nombre": "Diego Sanzo",
     "email": "diego.sanzo@gmail.com",
     "puesto": "Soft. Eng.",
-    "foto": "SoftEng.png"
+    "foto": "/images/nosotros/SoftEng.png"
   },
   {
     "id": 3,
-    "nombre": "Lucía Fernández",
-    "email": "lucia.fernandez@example.com",
+    "nombre": "Analía Dager",
+    "email": "ani.dager@gmail.com",
     "puesto": "CFO",
-    "foto": "CFO.png"
+    "foto": "/images/nosotros/CFO.png"
   },
   {
     "id": 4,
-    "nombre": "Mateo Rodríguez",
-    "email": "mateo.rodriguez@example.com",
+    "nombre": "Darío Sanzo",
+    "email": "dario.sanzo@gmail.com",
     "puesto": "CMO",
-    "foto": "CMO.png"
+    "foto": "/images/nosotros/CMO.png"
   }
 ]
