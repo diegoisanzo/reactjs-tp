@@ -41,7 +41,7 @@ function Item({nombre, precio, stock, imagen}) {
                  }
              }>
             <h3 className="h3">{nombre} <span className="badge" onClick={marcarODesmarcarComoFavorito}
-                               style={{ fontSize: '24px'}}
+                               style={{ fontSize: '24px', cursor: 'pointer' }}
             > {esFavorito ? '⭐' : '☆'}
             </span>
             </h3>
