@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function Item({nombre, precio, stock}) {
+function Item({nombre, precio, stock, imagen}) {
     const [esFavorito, setFavorito] = useState(false);
     const marcarODesmarcarComoFavorito = () => {
         setFavorito(!esFavorito);
@@ -46,6 +46,7 @@ function Item({nombre, precio, stock}) {
             </span>
             </h3>
 
+            <img src={imagen} alt={nombre} width="150"/>
             <p>Precio: ${precio}</p>
             <p>Stock disponible: {stock}</p>
             {/* Cuando le boton detecta un clic (onClick), se ejecuta la función */}
