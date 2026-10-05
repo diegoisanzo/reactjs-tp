@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function Item({nombre, precio, stock, imagen}) {
+function Item({nombre, precio, stock, imagen, tecnica, medidas}) {
     const [esFavorito, setFavorito] = useState(false);
     const marcarODesmarcarComoFavorito = () => {
         setFavorito(!esFavorito);
@@ -47,6 +47,8 @@ function Item({nombre, precio, stock, imagen}) {
             </h3>
 
             <img className="img-fluid" src={imagen} alt={nombre} width="150"/>
+            {tecnica && <p className="lead">Técnica: {tecnica}</p>}
+            {medidas && <p className="lead">Medidas: {medidas}</p>}
             <p className="lead">Precio: ${precio}</p>
             <p className="lead">Stock disponible: {stock}</p>
             {/* Cuando le boton detecta un clic (onClick), se ejecuta la función */}
