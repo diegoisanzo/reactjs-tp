@@ -24,21 +24,21 @@ function Nosotros() {
             });
     }, []);
     if (cargando) {
-        return <p>Cargando equipo...</p>;
+        return <p className="lead">Cargando equipo...</p>;
     }
     if (error) {
-        return <p>Error: {error}</p>;
+        return <p className="lead">Error: {error}</p>;
     }
     return (
-        <div>
-            <h1>Nosotros</h1>
+        <div className="container">
+            <h1 className="h1">Nosotros</h1>
             <ul className={styles.nosotros}>
                 {nosotros.map((integrante) => (
                     <div key={integrante.id} className={styles.integrante}>
-                        <h2>{integrante.nombre}</h2>
-                        <img src={integrante.foto} alt={integrante.nombre} width="150" />
-                        <p>Puesto: {integrante.puesto}</p>
-                        <p>Email: {integrante.email}</p>
+                        <h2 className="h2">{integrante.nombre}</h2>
+                        <img className="img-fluid" src={integrante.foto} alt={integrante.nombre} width="150" />
+                        <p className="lead">Puesto: {integrante.puesto}</p>
+                        <p className="lead">Email: {integrante.email}</p>
                     </div>
                 ))}
             </ul>

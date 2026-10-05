@@ -5,9 +5,9 @@ function Footer() {
     const currentYear = new Date().getFullYear().toString(10);
 
     return (
-        <footer className={styles.footer}>
+        <footer className={`${styles.footer} container`}>
             <Nosotros />
-            <p>&copy; {currentYear} -  Mi Applicaci&oacute;n React</p>
+            <p className="lead">&copy; {currentYear} -  Mi Applicaci&oacute;n React</p>
         </footer>
     );
 }

@@ -1,21 +1,14 @@
 import styles from './Header.module.css'
 
-function SeparadorDeLinks() {
-    return <>&nbsp;</>
-}
-
 function Header() {
     return (
-        <header className={styles.header}>
-            <h1>Bienvenidos a mi App React</h1>
-            <nav>
-                <a href="#inicio">Inicio</a>
-                <SeparadorDeLinks/>
-                <a href="#productos">Productos</a>
-                <SeparadorDeLinks/>
-                <a href="#contacto">Contacto</a>
-                <SeparadorDeLinks/>
-                <a href="#carrito">🛒 Carrito</a>
+        <header className={`${styles.header} container`}>
+            <h1 className="h1">Bienvenidos a mi App React</h1>
+            <nav className="nav justify-content-center">
+                <a className="nav-link" href="#inicio">Inicio</a>
+                <a className="nav-link" href="#productos">Productos</a>
+                <a className="nav-link" href="#contacto">Contacto</a>
+                <a className="nav-link" href="#carrito">🛒 Carrito</a>
             </nav>
         </header>
     );

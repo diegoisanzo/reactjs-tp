@@ -28,17 +28,17 @@ export function ItemListContainer({ Mensaje }) {
     }, []);
 
     if (cargando) {
-        return <p>Cargando productos, por favor espere...</p>;
+        return <p className="lead">Cargando productos, por favor espere...</p>;
     }
 
     if (error) {
-        return <p>Error: {error}</p>;
+        return <p className="lead">Error: {error}</p>;
     }
 
     return (
-        <div>
-            <h2 className={styles.subtitulo}>{Mensaje}</h2>
-            <div className={styles.productos}>
+        <div className="container">
+            <h2 className={`${styles.subtitulo} h2`}>{Mensaje}</h2>
+            <div className={`${styles.productos} container`}>
                 <ItemList productos={productos}/>
             </div>
         </div>

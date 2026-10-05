@@ -32,7 +32,7 @@ function Item({nombre, precio, stock, imagen}) {
     };
 
     return (
-        <div style={
+        <div className="container" style={
                  {
                      border: '1px solid #ccc',
                      padding: '15px',
@@ -40,27 +40,27 @@ function Item({nombre, precio, stock, imagen}) {
                      textAlign: 'center'
                  }
              }>
-            <h3>{nombre} <span onClick={marcarODesmarcarComoFavorito}
+            <h3 className="h3">{nombre} <span className="badge" onClick={marcarODesmarcarComoFavorito}
                                style={{ fontSize: '24px'}}
             > {esFavorito ? '⭐' : '☆'}
             </span>
             </h3>
 
-            <img src={imagen} alt={nombre} width="150"/>
-            <p>Precio: ${precio}</p>
-            <p>Stock disponible: {stock}</p>
+            <img className="img-fluid" src={imagen} alt={nombre} width="150"/>
+            <p className="lead">Precio: ${precio}</p>
+            <p className="lead">Stock disponible: {stock}</p>
             {/* Cuando le boton detecta un clic (onClick), se ejecuta la función */}
-            <div style={{
+            <div className="container" style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 margin: '10px 0'
             }}>
-                <button onClick={incrementar}>+1</button>
-                <p style={{ margin: '0 10px' }}>{cantidad}</p>
-                <button onClick={decrementar}>-1</button>
+                <button className="btn btn-primary" onClick={incrementar}>+1</button>
+                <p className="lead" style={{ margin: '0 10px' }}>{cantidad}</p>
+                <button className="btn btn-primary" onClick={decrementar}>-1</button>
             </div>
-            <button onClick={AgregarAlCarrito}>Agregar al Carrito</button>
+            <button className="btn btn-primary" onClick={AgregarAlCarrito}>Agregar al Carrito</button>
         </div>
     );
 }
