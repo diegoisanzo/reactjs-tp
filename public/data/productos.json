@@ -19,5 +19,32 @@
     "precio": 110000,
     "stock": 2,
     "imagen": "/images/productos/MonitorCurvo.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Cuadro - Ascensión Cósmica",
+    "precio": 461000,
+    "stock": 1,
+    "imagen": "/images/productos/painting1AscensionCosmica.jpeg",
+    "tecnica": "Acrílico",
+    "medidas": "70 x 60 cm"
+  },
+  {
+    "id": 5,
+    "nombre": "Cuadro - Geometría del Alma",
+    "precio": 461000,
+    "stock": 1,
+    "imagen": "/images/productos/painting2GeometriaDelAlma.jpeg",
+    "tecnica": "Acrílico",
+    "medidas": "50 x 60 cm"
+  },
+  {
+    "id": 6,
+    "nombre": "Cuadro - Guardianas del Umbral",
+    "precio": 615000,
+    "stock": 1,
+    "imagen": "/images/productos/painting3GuardianasDelUmbral.jpeg",
+    "tecnica": "Acrílico",
+    "medidas": "70 x 60 cm"
   }
 ]
