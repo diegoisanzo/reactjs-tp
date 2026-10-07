@@ -52,8 +52,12 @@ function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCam
                        onChange={manejarCambioImagen}
                        />
             </div>
-            <button type="submit" disabled={laImagenSeEstaCargando}>Guardar Producto</button>
-            {(laImagenSeEstaCargando) ?  <p>La imagen se está cargando...por favor espere</p> : <p></p> }
+            <button type="submit" disabled={laImagenSeEstaCargando}>
+                {   (laImagenSeEstaCargando) ?
+                    <>La imagen se está cargando...por favor espere</> :
+                    <>Guardar Producto</>
+                }
+            </button>
         </form>
     );
 }
