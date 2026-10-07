@@ -39,7 +39,7 @@ export function ItemListContainer({ Mensaje }) {
         <div className="container">
             <h2 className={`${styles.subtitulo} h2`}>{Mensaje}</h2>
             <div className={`${styles.productos} container`}>
-                <ItemList productos={productos}/>
+                <ItemList productos={productos} mensaje={"Black Friday*"}/>
             </div>
         </div>
     );
