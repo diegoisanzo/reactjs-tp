@@ -3,17 +3,21 @@ import {ItemListContainer} from "./componentes/ItemListContainer/ItemListContain
 import './App.css'
 import './bootstrap.min.css';
 import {FormularioContainer} from "./componentes/FormularioContainer/FormularioContainer.jsx";
+import {Route, Routes} from "react-router-dom";
+import Productos from "./componentes/Productos/Productos.jsx";
 
 function App() {
 
   return (
       <div className="container">
-          <Layout>
-              <h1 className="h1">¡Bienvenidos a mi página!</h1>
-              <p className="lead">Este es el contenido principal.</p>
-              <ItemListContainer Mensaje="Estos son nuestros productos"/>
-              <FormularioContainer/>
-          </Layout>
+          <Routes>{/*envuelve a las demás para mostrar Header y Footer siempre */}
+              <Route element={<Layout/>}>
+                  <Route path="/" element={<h1>Página de Inicio</h1>} />
+                  <Route path="/productos" element={<ItemListContainer Mensaje={"Productos destacados"}/>} />
+                  <Route path="/destacados" element={<Productos Mensaje={"Todos los productos"}/>} />
+                  <Route path="/alta" element={<FormularioContainer/>} />
+              </Route>
+          </Routes>);
       </div>
   );
 
