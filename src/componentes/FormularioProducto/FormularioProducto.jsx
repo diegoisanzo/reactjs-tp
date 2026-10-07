@@ -1,4 +1,4 @@
-function FormularioProducto({ datosForm, manejarCambio, manejarEnvio }) {
+function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen }) {
     const formStyle = {
         display: 'flex',
         flexDirection: 'column',
@@ -47,7 +47,7 @@ function FormularioProducto({ datosForm, manejarCambio, manejarEnvio }) {
                        placeholder="https://..."
                        name="file"
                        value={datosForm.urlImagen}
-                       onChange={manejarCambio}
+                       onChange={manejarCambioImagen}
                        />
             </div>
             <button type="submit">Guardar Producto</button>
