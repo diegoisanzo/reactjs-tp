@@ -39,6 +39,7 @@ export function FormularioContainer() {
         formData.append('image', imagenFile);
         try {
             console.log("Subiendo imagen a Imgbb...");
+            setLoading(true);
             const respuestaImgbb = await
                 fetch(`https://api.imgbb.com/1/upload?key=${apiKey}`, {
                     method: 'POST',
@@ -62,7 +63,13 @@ export function FormularioContainer() {
             console.error("Error en el proceso de envío:", error);
             alert("Hubo un error al subir la imagen. Por favor, intentá de nuevo.");
         }
+        finally {
+            setLoading(false);
+        }
     };
+
+
+    const [loading, setLoading] = useState(false);
 
     return (
         <FormularioProducto
@@ -70,6 +77,7 @@ export function FormularioContainer() {
             manejarCambio={manejarCambio}
             manejarEnvio={manejarEnvio}
             manejarCambioImagen={manejarCambioImagen}
+            loading={loading}
         />
     );
 }

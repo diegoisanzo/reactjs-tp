@@ -1,4 +1,4 @@
-function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen }) {
+function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen, loading }) {
     const formStyle = {
         display: 'flex',
         flexDirection: 'column',
@@ -9,6 +9,8 @@ function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCam
         borderRadius: '8px',
         gap: '16px'
     };
+
+    const laImagenSeEstaCargando = loading === true;
 
     return (
         <form style={formStyle} onSubmit={manejarEnvio}>
@@ -50,7 +52,8 @@ function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCam
                        onChange={manejarCambioImagen}
                        />
             </div>
-            <button type="submit">Guardar Producto</button>
+            <button type="submit" disabled={laImagenSeEstaCargando}>Guardar Producto</button>
+            {(laImagenSeEstaCargando) ?  <p>La imagen se está cargando...por favor espere</p> : <p></p> }
         </form>
     );
 }
