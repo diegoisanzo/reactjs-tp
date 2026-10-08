@@ -31,9 +31,9 @@ function Productos({Mensaje}) {
         return <p>Error: {error}</p>;
     }
     return (
-        <div>
+        <div >
             <h1>{Mensaje}</h1>
-            <ul className={styles.productos}>
+            <ul className={styles.productosDetalle}>
                 {productos.map((producto) => (
                     <div key={producto.id} className={styles.producto}>
                         <h2>{producto.nombre}</h2>
