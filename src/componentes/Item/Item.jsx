@@ -1,6 +1,7 @@
 import {useState} from 'react'
+import {Link} from "react-router-dom";
 
-function Item({nombre, precio, stock, imagen, tecnica, medidas}) {
+function Item({id, nombre, precio, stock, imagen}) {
     const [esFavorito, setFavorito] = useState(false);
     const marcarODesmarcarComoFavorito = () => {
         setFavorito(!esFavorito);
@@ -40,17 +41,17 @@ function Item({nombre, precio, stock, imagen, tecnica, medidas}) {
                      textAlign: 'center'
                  }
              }>
-            <h3 className="h3">{nombre} <span className="badge" onClick={marcarODesmarcarComoFavorito}
-                               style={{ fontSize: '24px', cursor: 'pointer' }}
-            > {esFavorito ? '⭐' : '☆'}
-            </span>
-            </h3>
+            <Link to={`/producto/${id}`}>
+                <h3 className="h3">{nombre} <span className="badge" onClick={marcarODesmarcarComoFavorito}
+                                   style={{ fontSize: '24px', cursor: 'pointer' }}
+                > {esFavorito ? '⭐' : '☆'}
+                </span>
+                </h3>
+            </Link>
 
             <img className="img-fluid" src={imagen} alt={nombre} width="150"/>
-            {tecnica && <p className="lead">Técnica: {tecnica}</p>}
-            {medidas && <p className="lead">Medidas: {medidas}</p>}
             <p className="lead">Precio: ${precio}</p>
-            <p className="lead">Stock disponible: {stock}</p>
+            <p className="lead">Stock: {stock}</p>
             {/* Cuando le boton detecta un clic (onClick), se ejecuta la función */}
             <div className="container" style={{
                 display: 'flex',
