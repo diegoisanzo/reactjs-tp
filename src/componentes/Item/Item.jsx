@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {Link} from "react-router-dom";
-import {useCart} from "../../context/CartContext.jsx";
+import {useCart} from "../../context/useCart.js";
 
 function Item({id, nombre, precio, stock, imagen}) {
     const [esFavorito, setFavorito] = useState(false);

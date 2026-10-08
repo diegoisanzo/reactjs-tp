@@ -1,6 +1,6 @@
 import styles from './Header.module.css'
 import {Link} from "react-router-dom";
-import {useCart} from "../../context/CartContext.jsx";
+import {useCart} from "../../context/useCart.js";
 
 function Header() {
 
