@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom';
 const ProductoDetalle = () => {
     const {id} = useParams();
     const [producto, setProducto] = useState(null);
+
     useEffect(() => {
         fetch('/data/productos.json')
             .then(response => response.json())
@@ -13,12 +14,15 @@ const ProductoDetalle = () => {
             })
             .catch(error => console.error("Error al cargar el producto:", error));
     }, [id]);
+
     if (!producto) {
         return <h2>Cargando detalle del producto...</h2>;
     }
+
     if (!producto.id) {
         return <h2>Producto no encontrado.</h2>;
     }
+
     return (
         <div>
             <h2>Detalle del Producto: {producto.nombre}</h2>
@@ -28,4 +32,5 @@ const ProductoDetalle = () => {
         </div>
     );
 };
+
 export default ProductoDetalle;
