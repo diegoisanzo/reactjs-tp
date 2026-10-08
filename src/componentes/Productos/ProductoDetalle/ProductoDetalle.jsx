@@ -35,7 +35,7 @@ const ProductoDetalle = () => {
             {producto.tecnica && <p className="lead">Técnica: {producto.tecnica}</p>}
             {producto.medidas && <p className="lead">Medidas: {producto.medidas}</p>}
 
-            <Link to="/productos">Ver todos los productos</Link>
+            <Link to="/">Inicio</Link>
         </div>
     );
 };
