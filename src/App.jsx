@@ -15,6 +15,7 @@ function App() {
                   <Route path="/" element={<h1>Página de Inicio</h1>} />
                   <Route path="/productos" element={<ItemListContainer Mensaje={"Productos destacados"}/>} />
                   <Route path="/destacados" element={<Productos Mensaje={"Todos los productos"}/>} />
+                  <Route path="/carrito" element={<p>TODO: CARRITO!</p>}/>
                   <Route path="/alta" element={<FormularioContainer/>} />
               </Route>
           </Routes>);
