@@ -36,8 +36,8 @@ function Productos({Mensaje}) {
             <h1>{Mensaje}</h1>
             <ul className={styles.productosDetalle}>
                 {productos.map((producto) => (
-                    <Link to={`/producto/${producto.id}`}>
-                        <div key={producto.id} className={styles.producto}>
+                    <Link key={producto.id} to={`/producto/${producto.id}`}>
+                        <div className={styles.producto}>
                             <h2>{producto.nombre}</h2>
                             <img src={producto.imagen} alt={producto.nombre} width="150"/>
                             <p>Precio: ${producto.precio}</p>
