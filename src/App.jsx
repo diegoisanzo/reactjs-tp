@@ -6,6 +6,7 @@ import {FormularioContainer} from "./componentes/FormularioContainer/FormularioC
 import {Route, Routes} from "react-router-dom";
 import Productos from "./componentes/Productos/Productos.jsx";
 import ProductoDetalle from "./componentes/Productos/ProductoDetalle/ProductoDetalle.jsx";
+import Inicio from "./componentes/Inicio/Inicio.jsx";
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
       <div className="container">
           <Routes>{/*envuelve a las demás para mostrar Header y Footer siempre */}
               <Route element={<Layout/>}>
-                  <Route path="/" element={<h1>Página de Inicio</h1>} />
+                  <Route path="/" element={<Inicio/>} />
                   <Route path="/productos" element={<ItemListContainer Mensaje={"Productos destacados"}/>} />
                   <Route path="/destacados" element={<Productos Mensaje={"Todos los productos"}/>} />
                   <Route path="/carrito" element={<p>TODO: CARRITO!</p>}/>
