@@ -7,6 +7,7 @@ export function Layout({ children }) {
         <div className="container">
             <Header/>
                 <main className="container">
+                    {/* Aquí se renderizará el componente de la ruta activa */}
                     <Outlet/>
                 </main>
             <Footer/>
