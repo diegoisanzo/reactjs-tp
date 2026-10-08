@@ -4,21 +4,24 @@
     "nombre": "Camara Instantánea",
     "precio": 85000,
     "stock": 22,
-    "imagen": "/images/productos/CamaraInstantanea.png"
+    "imagen": "/images/productos/CamaraInstantanea.png",
+    "destacado": false
   },
   {
     "id": 2,
     "nombre": "Camara Nikon",
     "precio": 97500,
     "stock": 2,
-    "imagen": "/images/productos/CamaraNikon.jpg"
+    "imagen": "/images/productos/CamaraNikon.jpg",
+    "destacado": false
   },
   {
     "id": 3,
     "nombre": "Monitor Curvo",
     "precio": 110000,
     "stock": 2,
-    "imagen": "/images/productos/MonitorCurvo.jpg"
+    "imagen": "/images/productos/MonitorCurvo.jpg",
+    "destacado": true
   },
   {
     "id": 4,
@@ -26,6 +29,7 @@
     "precio": 461000,
     "stock": 1,
     "imagen": "/images/productos/painting1AscensionCosmica.jpeg",
+    "destacado": false,
     "tecnica": "Acrílico",
     "medidas": "70 x 60 cm"
   },
@@ -35,6 +39,7 @@
     "precio": 461000,
     "stock": 1,
     "imagen": "/images/productos/painting2GeometriaDelAlma.jpeg",
+    "destacado": false,
     "tecnica": "Acrílico",
     "medidas": "50 x 60 cm"
   },
@@ -44,6 +49,7 @@
     "precio": 615000,
     "stock": 1,
     "imagen": "/images/productos/painting3GuardianasDelUmbral.jpeg",
+    "destacado": true,
     "tecnica": "Acrílico",
     "medidas": "70 x 60 cm"
   }
