@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import {Link} from "react-router-dom";
+import {useCart} from "../../context/CartContext.jsx";
 
 function Item({id, nombre, precio, stock, imagen}) {
     const [esFavorito, setFavorito] = useState(false);
@@ -7,6 +8,18 @@ function Item({id, nombre, precio, stock, imagen}) {
         setFavorito(!esFavorito);
     };
 
+    // Lógica del Carrito
+    const { addToCart } = useCart(); // Traemos la función del contexto
+    const manejarAgregarAlCarrito = () => {
+        if (cantidad > 0) {
+            const unidadTexto = (cantidad === 1) ? 'unidad' : 'unidades';
+
+            const producto = {id, nombre, precio, stock, imagen};
+
+            addToCart(producto, cantidad);
+            alert(`¡Agregaste ${cantidad} ${unidadTexto} de '${nombre}' al changuito!`)
+        }
+    };
 
     const [cantidad, setCantidad] = useState(0);
 
@@ -20,16 +33,6 @@ function Item({id, nombre, precio, stock, imagen}) {
         if (cantidad > 1) {
             setCantidad(cantidad - 1);
         }
-    };
-
-    const AgregarAlCarrito = () => {
-
-        if (cantidad > 0) {
-            const unidadTexto = (cantidad === 1) ? 'unidad' : 'unidades';
-
-            alert(`¡Agregaste ${cantidad} ${unidadTexto} de '${nombre}' al changuito!`)
-        }
-
     };
 
     return (
@@ -63,7 +66,7 @@ function Item({id, nombre, precio, stock, imagen}) {
                 <p className="lead" style={{ margin: '0 10px' }}>{cantidad}</p>
                 <button className="btn btn-primary" onClick={decrementar}>-1</button>
             </div>
-            <button className="btn btn-primary" onClick={AgregarAlCarrito}>Agregar al Carrito</button>
+            <button className="btn btn-primary" onClick={manejarAgregarAlCarrito}>Agregar al Carrito</button>
         </div>
     );
 }
