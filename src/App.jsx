@@ -5,6 +5,7 @@ import './bootstrap.min.css';
 import {FormularioContainer} from "./componentes/FormularioContainer/FormularioContainer.jsx";
 import {Route, Routes} from "react-router-dom";
 import Productos from "./componentes/Productos/Productos.jsx";
+import ProductoDetalle from "./componentes/Productos/ProductoDetalle/ProductoDetalle.jsx";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
                   <Route path="/destacados" element={<Productos Mensaje={"Todos los productos"}/>} />
                   <Route path="/carrito" element={<p>TODO: CARRITO!</p>}/>
                   <Route path="/alta" element={<FormularioContainer/>} />
+                  <Route path="/producto/:id" element={<ProductoDetalle />} />
               </Route>
           </Routes>);
       </div>
