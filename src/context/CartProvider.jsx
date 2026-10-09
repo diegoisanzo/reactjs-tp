@@ -17,17 +17,12 @@ export const CartProvider = ({ children }) => {
         }
     };
 
-    const clearCart = () => {
-        setCart([]);
-    };
+    const clearCart = () => setCart([]);
 
-    const getCartQuantity = () => {
-        return cart.reduce((acc, item) => acc + item.quantity, 0);
-    };
+    const getCartQuantity = () => cart.reduce((acc, item) => acc + item.quantity, 0);
 
-    const getCartTotal = () => {
-        return cart.reduce((acc, item) => acc + item.precio * item.quantity, 0);
-    };
+    const getCartTotal = () => cart.reduce((acc, item) => acc + item.precio * item.quantity, 0);
+
     return (
         <CartContext.Provider value={{ cart, addToCart, clearCart,
             getCartQuantity, getCartTotal }}>
