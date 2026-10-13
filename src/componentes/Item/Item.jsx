@@ -2,6 +2,13 @@ import {useState} from 'react'
 import {Link} from "react-router-dom";
 import {useCart} from "../../context/useCart.js";
 
+function Favorito({esFavorito, onclick}) {
+    return <span className="badge" onClick={onclick}
+                 style={{fontSize: '24px', cursor: 'pointer'}}
+    > {esFavorito ? '⭐' : '☆'}
+                </span>;
+}
+
 function Item({id, nombre, precio, stock, imagen}) {
     const [esFavorito, setFavorito] = useState(false);
     const marcarODesmarcarComoFavorito = () => {
@@ -35,23 +42,19 @@ function Item({id, nombre, precio, stock, imagen}) {
         }
     };
 
-    return (
-        <div className="container" style={
-                 {
-                     border: '1px solid #ccc',
-                     padding: '15px',
-                     borderRadius: '8px',
-                     textAlign: 'center'
-                 }
-             }>
-            <Link to={`/producto/${id}`}>
-                <h3 className="h3">{nombre} <span className="badge" onClick={marcarODesmarcarComoFavorito}
-                                   style={{ fontSize: '24px', cursor: 'pointer' }}
-                > {esFavorito ? '⭐' : '☆'}
-                </span>
+        return (
+            <div style={
+                     {
+                         border: '1px solid #ccc',
+                         padding: '15px',
+                         borderRadius: '8px',
+                         textAlign: 'center'
+                     }
+                 }>
+                <h3 className="h3">
+                    <Link to={`/producto/${id}`}>{nombre}</Link>
+                    <Favorito esFavorito={esFavorito} onclick={marcarODesmarcarComoFavorito}/>
                 </h3>
-            </Link>
-
             <img className="img-fluid" src={imagen} alt={nombre} width="150"/>
             <p className="lead">Precio: ${precio}</p>
             <p className="lead">Stock: {stock}</p>

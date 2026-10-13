@@ -2,9 +2,7 @@
     padding: 1rem 1rem 0 1rem;
 }
 
-.productoDetalles {
-    display: flex;
-    flex-direction: row;
+.container {
     justify-content: center;
     align-items: center;
     padding: 2rem;

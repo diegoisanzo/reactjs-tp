@@ -38,7 +38,7 @@ export function ItemListContainer({ Mensaje }) {
     return (
         <div className="container">
             <h2 className={`${styles.subtitulo} h2`}>{Mensaje}</h2>
-            <div className={`${styles.productos} container`}>
+            <div className={`${styles.container}`}>
                 <ItemList productos={productos} mensaje={"Black Friday*"}/>
             </div>
         </div>
