@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import {Link} from "react-router-dom";
 import {useCart} from "../../context/useCart.js";
+import styles from './Item.module.css'
 
 function Favorito({esFavorito, onclick}) {
     return <span className="badge" onClick={onclick}
@@ -43,14 +44,7 @@ function Item({id, nombre, precio, stock, imagen}) {
     };
 
         return (
-            <div style={
-                     {
-                         border: '1px solid #ccc',
-                         padding: '15px',
-                         borderRadius: '8px',
-                         textAlign: 'center'
-                     }
-                 }>
+            <div className={styles.item}>
                 <h3 className="h3">
                     <Link to={`/producto/${id}`}>{nombre}</Link>
                     <Favorito esFavorito={esFavorito} onclick={marcarODesmarcarComoFavorito}/>
@@ -59,12 +53,7 @@ function Item({id, nombre, precio, stock, imagen}) {
             <p className="lead">Precio: ${precio}</p>
             <p className="lead">Stock: {stock}</p>
             {/* Cuando le boton detecta un clic (onClick), se ejecuta la función */}
-            <div className="container" style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                margin: '10px 0'
-            }}>
+            <div className={`${styles.cantidad} container`}>
                 <button className="btn btn-primary" onClick={incrementar}>+1</button>
                 <p className="lead" style={{ margin: '0 10px' }}>{cantidad}</p>
                 <button className="btn btn-primary" onClick={decrementar}>-1</button>
