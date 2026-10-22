@@ -1,4 +1,5 @@
 import {useCart} from "../../context/useCart.js";
+import {Link} from "react-router-dom";
 
 const Cart = () => {
     // 2. Obtenemos el estado 'cart' y las funciones que necesitemos del contexto
@@ -9,6 +10,9 @@ const Cart = () => {
             <div>
                 <h1>El carrito está vacío</h1>
                 <p>Agrega productos para continuar la compra.</p>
+                <Link className="nav-link" to="/productos">
+                    Ver Productos...
+                </Link>
             </div>
         );
     }
@@ -28,6 +32,11 @@ const Cart = () => {
             <hr />
             <h3>Total a pagar: ${getCartTotal()}</h3>
             <button onClick={clearCart}>Vaciar Carrito</button>
+            <Link to="/"
+                  onClick={() => alert("Gracias por comprar")}
+                  className="btn-finalizar">
+                Finalizar Compra
+            </Link>
         </div>
     );
 };

@@ -17,7 +17,7 @@ function Item({id, nombre, precio, stock, imagen}) {
     };
 
     // Lógica del Carrito
-    const { addToCart } = useCart(); // Traemos la función del contexto
+    const { addToCart, getCantidadActual } = useCart(); // Traemos la función del contexto
     const manejarAgregarAlCarrito = () => {
         if (cantidad > 0) {
             const unidadTexto = (cantidad === 1) ? 'unidad' : 'unidades';
@@ -43,6 +43,8 @@ function Item({id, nombre, precio, stock, imagen}) {
         }
     };
 
+    const cantidadActual = getCantidadActual(id);
+
         return (
             <div className={styles.item}>
                 <h3 className="h3">
@@ -55,10 +57,10 @@ function Item({id, nombre, precio, stock, imagen}) {
             {/* Cuando le boton detecta un clic (onClick), se ejecuta la función */}
             <div className={`${styles.cantidad} container`}>
                 <button className="btn btn-primary" onClick={incrementar}>+1</button>
-                <p className="lead" style={{ margin: '0 10px' }}>{cantidad}</p>
+                <p className="lead" style={{ margin: '0 10px' }}>{cantidadActual}</p>
                 <button className="btn btn-primary" onClick={decrementar}>-1</button>
             </div>
-            <button className="btn btn-primary" onClick={manejarAgregarAlCarrito}>Agregar al Carrito</button>
+            <button className="btn btn-primary" onClick={manejarAgregarAlCarrito}>Agregar al {cantidad} Carrito</button>
         </div>
     );
 }
