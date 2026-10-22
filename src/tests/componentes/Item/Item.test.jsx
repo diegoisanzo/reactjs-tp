@@ -7,9 +7,11 @@ import {CartProvider} from "../../../context/CartProvider.jsx";
 
 // Mocking the useCart hook
 const mockAddToCart = vi.fn();
+const mockGetCantidadActual = vi.fn();
 vi.mock('../../../context/useCart.js', () => ({
     useCart: () => ({
         addToCart: mockAddToCart,
+        getCantidadActual: mockGetCantidadActual
     }),
 }));
 
@@ -57,7 +59,7 @@ describe('Item', () => {
         const incrementButton = screen.getByText('+1');
         fireEvent.click(incrementButton);
 
-        expect(screen.getByText('1')).toBeDefined();
+        expect(screen.getByText('Agregar al 1 Carrito')).toBeDefined();
     });
 
     it('should toggle favorite status when clicked', () => {
