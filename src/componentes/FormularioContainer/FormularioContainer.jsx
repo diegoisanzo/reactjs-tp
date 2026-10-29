@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import FormularioProducto from "../FormularioProducto/FormularioProducto.jsx";
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 export function FormularioContainer() {
     const [datosForm, setDatosForm] = useState({
@@ -46,6 +47,7 @@ export function FormularioContainer() {
                     body: formData,
                 });
             const datosImgbb = await respuestaImgbb.json();
+
             if (datosImgbb.success) {
                 console.log("Imagen subida con éxito. URL:", datosImgbb.data.url);
                 // Unimos la URL de la imagen con el resto de los datos del formulario
@@ -54,8 +56,14 @@ export function FormularioContainer() {
                     // Agregamos la URL obtenida
                     urlImagen: datosImgbb.data.url
                 };
-                // Por el momento hacemos un console.log
-                console.log('Enviando los siguientes datos COMPLETOS a la API:', productoCompleto);
+                // LÓGICA PARA SUBIR DATOS A FIRESTORE ---
+                console.log('Enviando producto a Firebase:', productoCompleto);
+                // Obtenemos la instancia de la base de datos
+                const db = getFirestore();
+                // Apuntamos a la colección "productos" (si no existe, se crea)
+                const productosCollection = collection(db, "Productos nacionales");
+                // Agregamos el nuevo documento a la colección
+                await addDoc(productosCollection, productoCompleto);
             } else {
                 throw new Error('La subida de la imagen a Imgbb falló.');
             }
