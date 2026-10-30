@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import FormularioProducto from "../FormularioProducto/FormularioProducto.jsx";
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import {collection, getDocs, deleteDoc, updateDoc, doc, addDoc} from
+        "firebase/firestore";
+import {db} from '../../firebase/config';
 
 export function FormularioContainer() {
     const [datosForm, setDatosForm] = useState({
@@ -26,8 +28,23 @@ export function FormularioContainer() {
         setImagenFile(evento.target.files[0]);
     };
 
+    // TODO: esto está Ok ?
+    const [productoAEditar, setProductoAEditar] = useState(null);
+    const cancelarEdicion = () => {
+        setProductoAEditar(null);
+    };
+
     const manejarEnvio = async (evento) => {
         evento.preventDefault();
+
+        // TODO: más validaciones ?
+        if (datosForm.nombre.trim() === "" || datosForm.precio <= 0) {
+            alert("Por favor, complete todos los campos y asegúrese de que el precio sea mayor a cero.");
+            return; // Detiene la ejecución de la función
+        }
+
+
+        let urlImagen = datosForm.urlImagen;
         // Validamos que el usuario haya seleccionado una imagen
         if (!imagenFile) {
             alert("Por favor, selecciona una imagen para el producto.");
@@ -41,51 +58,65 @@ export function FormularioContainer() {
         try {
             console.log("Subiendo imagen a Imgbb...");
             setLoading(true);
-            const respuestaImgbb = await
+            const response = await
                 fetch(`https://api.imgbb.com/1/upload?key=${apiKey}`, {
                     method: 'POST',
                     body: formData,
                 });
-            const datosImgbb = await respuestaImgbb.json();
-
-            if (datosImgbb.success) {
-                console.log("Imagen subida con éxito. URL:", datosImgbb.data.url);
-                // Unimos la URL de la imagen con el resto de los datos del formulario
-                const productoCompleto = {
-                    ...datosForm,
-                    // Agregamos la URL obtenida
-                    urlImagen: datosImgbb.data.url
-                };
-                // LÓGICA PARA SUBIR DATOS A FIRESTORE ---
-                console.log('Enviando producto a Firebase:', productoCompleto);
-                // Obtenemos la instancia de la base de datos
-                const db = getFirestore();
-                // Apuntamos a la colección "productos" (si no existe, se crea)
-                const productosCollection = collection(db, "Productos nacionales");
-                // Agregamos el nuevo documento a la colección
-                await addDoc(productosCollection, productoCompleto);
+            const data = await response.json();
+            if (data.success) {
+                urlImagen = data.data.url; // Obtenemos la nueva URL
             } else {
-                throw new Error('La subida de la imagen a Imgbb falló.');
+                throw new Error('La subida de la imagen falló.');
             }
         } catch (error) {
             console.error("Error en el proceso de envío:", error);
             alert("Hubo un error al subir la imagen. Por favor, intentá de nuevo.");
-        }
-        finally {
+        } finally {
             setLoading(false);
+        }
+
+        const productoFinal = {...datosForm, imagen: urlImagen};
+
+        try {
+            if (productoAEditar) {
+                const docRef = doc(db, "Productos nacionales",
+                    productoAEditar.id);
+                // update
+                await updateDoc(docRef, productoFinal);
+                alert("Producto actualizado con éxito.");
+            } else {
+                // create
+                await addDoc(collection(db, "Productos nacionales"),
+                    productoFinal);
+                alert("Producto guardado con éxito.");
+            }
+            // ... (reseteo de formulario) ...
+        } catch (error) {
+            console.error("Error:", error);
         }
     };
 
 
     const [loading, setLoading] = useState(false);
 
+    const modoEdicion = productoAEditar != null;
+
     return (
-        <FormularioProducto
-            datosForm={datosForm}
-            manejarCambio={manejarCambio}
-            manejarEnvio={manejarEnvio}
-            manejarCambioImagen={manejarCambioImagen}
-            loading={loading}
-        />
+        <>
+            <FormularioProducto
+                datosForm={datosForm}
+                manejarCambio={manejarCambio}
+                manejarEnvio={manejarEnvio}
+                manejarCambioImagen={manejarCambioImagen}
+                modoEdicion={modoEdicion}
+                loading={loading}
+            />
+            {productoAEditar && (
+                <button onClick={cancelarEdicion}>
+                    Cancelar Edición
+                </button>
+            )}
+        </>
     );
 }

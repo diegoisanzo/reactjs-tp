@@ -1,4 +1,4 @@
-function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen, loading }) {
+function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen, modoEdicion, loading }) {
     const formStyle = {
         display: 'flex',
         flexDirection: 'column',
@@ -14,7 +14,7 @@ function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCam
 
     return (
         <form style={formStyle} onSubmit={manejarEnvio}>
-            <h3>Agregar Nuevo Producto</h3>
+            <h3>{!modoEdicion ? 'Agregar Nuevo' : 'Editar'} Producto</h3>
             <div>
                 <label>Nombre del Producto:</label>
                 <input
@@ -51,11 +51,19 @@ function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCam
                        value={datosForm.urlImagen}
                        onChange={manejarCambioImagen}
                        />
+                {modoEdicion &&
+                    (datosForm.urlImagen || datosForm.imagen) && (
+                    <div>
+                        <p>Imagen actual:</p>
+                        <img src={datosForm.urlImagen ? datosForm.urlImagen : datosForm.imagen} alt="Vista previa"
+                             style={{ width: '100px' }} />
+                    </div>
+                )}
             </div>
             <button type="submit" disabled={laImagenSeEstaCargando}>
                 {   (laImagenSeEstaCargando) ?
                     <>La imagen se está cargando...por favor espere</> :
-                    <>Guardar Producto</>
+                    <>{modoEdicion ? 'Actualizar' : 'Guardar'} producto</>
                 }
             </button>
         </form>

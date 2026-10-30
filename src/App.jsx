@@ -8,6 +8,7 @@ import Productos from "./componentes/Productos/Productos.jsx";
 import ProductoDetalle from "./componentes/Productos/ProductoDetalle/ProductoDetalle.jsx";
 import Inicio from "./componentes/Inicio/Inicio.jsx";
 import Cart from "./componentes/Cart/Cart.jsx";
+import Gestion from "./componentes/Gestion/Gestion.jsx";
 
 // TODOS:
 // TODO: Clase 10, hacer un crud de cupones de descuento
@@ -52,6 +53,50 @@ que renderice el componente GestionCupones.jsx.
 a esta nueva ruta de administración.
 * */
 
+/* CLASE 11
+Completar el CRUD - Edición y Validación
+Requerimientos funcionales:
+1. Habilitar modo edición:
+○ El usuario debe poder iniciar la edición de un producto existente directamente
+desde la lista de productos.
+○ Al entrar en modo edición, el formulario debe cargarse automáticamente
+con los datos (nombre, precio, etc.) del producto seleccionado.
+2. Interfaz de usuario adaptativa:
+○ El formulario debe indicar visualmente si se está creando un nuevo
+producto o editando uno existente. Esto incluye cambiar, como mínimo, el
+título del formulario y el texto del botón de envío (ej: "Agregar Producto" vs.
+"Actualizar Producto").
+3. Lógica de actualización:
+○ Al enviar el formulario en modo edición, los datos del producto
+correspondiente en la base de datos de Firestore deben ser actualizados
+con la nueva información ingresada. La acción de creación no debe
+ejecutarse en este caso.
+4. Validación de datos:
+○ El sistema no debe permitir la creación o actualización de un producto si no
+se cumplen las siguientes condiciones:
+■ El campo nombre no puede estar vacío.
+■ El campo precio debe ser un valor numérico y mayor que cero.
+○ Si la validación falla, se debe notificar al usuario mediante una alerta (alert) y
+prevenir el envío de datos a Firebase.
+Requerimientos Técnicos:
+1. Manejo de estado para edición:
+○ Se debe utilizar un estado (ej: productoAEditar) inicializado en null para
+almacenar el objeto del producto que se está editando.
+○ Cada producto en la lista debe tener un botón "Editar" que, al ser presionado,
+actualice este estado con los datos del producto correspondiente.
+2. Sincronización de formulario y estado:
+○ Implementar un useEffect que observe los cambios en el estado
+productoAEditar. Cuando este estado contenga un producto, sus datos
+deberán ser asignados a los estados que controlan los campos del
+formulario.
+3. Lógica condicional en onSubmit:
+○ La función que maneja el envío del formulario debe verificar el estado
+productoAEditar.
+■ Si es null, debe ejecutar la lógica de creación con addDoc.■ Si contiene un producto, debe ejecutar la lógica de actualización con
+updateDoc, utilizando el ID del producto para modificar el documento
+correcto.
+ */
+
 function App() {
 
   return (
@@ -64,6 +109,7 @@ function App() {
                   <Route path="/alta" element={<FormularioContainer/>} />
                   <Route path="/producto/:id" element={<ProductoDetalle />} />
                   <Route path="/carrito" element={<Cart />} />
+                  <Route path="/gestion" element={<Gestion />} />
               </Route>
           </Routes>);
       </div>
