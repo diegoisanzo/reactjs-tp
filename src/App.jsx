@@ -98,6 +98,12 @@ updateDoc, utilizando el ID del producto para modificar el documento
 correcto.
  */
 
+/* TODOS (sugerencias de Jorge):
+- Mejorar el abm/crud viendo de usar column-span
+ ( https://www-w3schools-com.translate.goog/cssref/css3_pr_column-span.php?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc )
+- ver de usar display: flex
+ */
+
 function App() {
 
   return (
@@ -107,10 +113,11 @@ function App() {
                   <Route path="/" element={<Inicio/>} />
                   <Route path="/productos" element={<ItemListContainer Mensaje={"Todos los productos"}/>} />
                   <Route path="/destacados" element={<Productos Mensaje={"Productos destacados"}/>} />
-                  <Route path="/gestion" element={<Gestion />} />
-                  <Route path="/gestion-descuentos" element={<GestionDescuentos />} />
                   <Route path="/producto/:id" element={<ProductoDetalle />} />
                   <Route path="/carrito" element={<Cart />} />
+
+                  <Route path="/gestion" element={<Gestion />} />
+                  <Route path="/gestion-descuentos" element={<GestionDescuentos />} />
               </Route>
           </Routes>);
       </div>
