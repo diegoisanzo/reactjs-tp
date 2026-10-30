@@ -2,6 +2,7 @@ import {useState} from 'react'
 import {Link} from "react-router-dom";
 import {useCart} from "../../context/useCart.js";
 import styles from './Item.module.css'
+import {formatearMonto} from "../../utils/formatearMonto.js";
 
 function Favorito({esFavorito, onclick}) {
     return <span className="badge" onClick={onclick}
@@ -52,7 +53,7 @@ function Item({id, nombre, precio, stock, imagen}) {
                     <Favorito esFavorito={esFavorito} onclick={marcarODesmarcarComoFavorito}/>
                 </h3>
             <img className="img-fluid" src={imagen} alt={nombre} width="150"/>
-            <p className="lead">Precio: ${precio}</p>
+            <p className="lead">Precio: {formatearMonto(precio)}</p>
             <p className="lead">Stock: {stock}</p>
             {/* Cuando le boton detecta un clic (onClick), se ejecuta la función */}
             <div className={`${styles.cantidad} container`}>

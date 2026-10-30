@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 // Importaciones clave de Firebase
 import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
+import {formatearMonto} from "../../utils/formatearMonto.js";
 
 const poblarProductosNacionales = async () => {
     try {
@@ -95,7 +96,7 @@ const ProductosNacionales = () => {
                                 width: '100px' }} />
                             <h3>{prod.nombre}</h3>
                             <p>Categoría: {prod.categoria}</p>
-                            <p>Precio: ${prod.precio}</p>
+                            <p>Precio: {formatearMonto(prod.precio)}</p>
                             <p>Stock: {prod.stock} unidades</p>
                             <hr />
                         </div>

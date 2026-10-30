@@ -3,6 +3,7 @@ import {db} from '../../firebase/config';
 import {addDoc, collection, deleteDoc, doc, getDocs, updateDoc} from "firebase/firestore";
 //import {FormularioContainer} from "../FormularioContainer/FormularioContainer.jsx";
 import FormularioProducto from "../FormularioProducto/FormularioProducto.jsx";
+import {formatearMonto} from "../../utils/formatearMonto.js";
 
 const Gestion = () => {
     const [productos, setProductos] = useState([]);
@@ -137,7 +138,7 @@ const Gestion = () => {
 
     const [loading, setLoading] = useState(false);
 
-    const handleEdit = (producto) => setProductoAEditar(producto);
+    const handleEdit = (prod) => setProductoAEditar(prod);
 
 
      //// by diego
@@ -160,16 +161,11 @@ const Gestion = () => {
             <ul>
                 {productos.map((prod) => (
                     <li key={prod.id}>
-                        {prod.nombre} - ${prod.precio}
-                        {/*acá agregaremos los botones de acción */}
-                        <button onClick={() => handleEdit(prod)}
-                                style={{
-                                    marginLeft: '10px'
-                                }}>
+                        {prod.nombre} - {formatearMonto(prod.precio)}
+                        <button onClick={() => handleEdit(prod)} style={{ marginLeft: '10px' }}>
                             Editar ✏️
                         </button>
-                        <button onClick={() => handleDelete(prod.id)}
-                                style={{ marginLeft: '10px'}}>
+                        <button onClick={() => handleDelete(prod.id)} style={{ marginLeft: '10px' }}>
                             Eliminar ❌️
                         </button>
                     </li>

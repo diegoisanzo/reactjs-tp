@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import {Link, useParams} from 'react-router-dom';
+import {formatearMonto} from "../../../utils/formatearMonto.js";
 
 const ProductoDetalle = () => {
     const {id} = useParams();
@@ -29,7 +30,7 @@ const ProductoDetalle = () => {
         <div>
             <h2>Detalle del Producto: {producto.nombre}</h2>
             <img src={producto.imagen} alt={producto.nombre} style={{maxWidth: '400px'}}/>
-            <h3>${producto.precio}</h3>
+            <h3>{formatearMonto(producto.precio)}</h3>
             <p>{producto.descripcion}</p>
 
             {producto.tecnica && <p className="lead">Técnica: {producto.tecnica}</p>}

@@ -46,7 +46,7 @@ describe('Item', () => {
         renderItem();
 
         expect(screen.getByText('Producto Test')).toBeDefined();
-        expect(screen.getByText('Precio: $100')).toBeDefined();
+        expect(screen.getByText('Precio: $ 100,00')).toBeDefined();
         expect(screen.getByText('Stock: 5')).toBeDefined();
         expect(screen.getByRole('img')
                      .getAttribute('src')

@@ -106,10 +106,9 @@ function App() {
                   <Route path="/" element={<Inicio/>} />
                   <Route path="/productos" element={<ItemListContainer Mensaje={"Todos los productos"}/>} />
                   <Route path="/destacados" element={<Productos Mensaje={"Productos destacados"}/>} />
-                  <Route path="/alta" element={<FormularioContainer/>} />
+                  <Route path="/gestion" element={<Gestion />} />
                   <Route path="/producto/:id" element={<ProductoDetalle />} />
                   <Route path="/carrito" element={<Cart />} />
-                  <Route path="/gestion" element={<Gestion />} />
               </Route>
           </Routes>);
       </div>

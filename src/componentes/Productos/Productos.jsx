@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import styles from './Productos.module.css'
 import {Link} from "react-router-dom";
+import {formatearMonto} from "../../utils/formatearMonto.js";
 
 function Productos({Mensaje}) {
     const [productos, setProductos] = useState([]);
@@ -40,7 +41,7 @@ function Productos({Mensaje}) {
                         <div className={styles.producto}>
                             <h2>{producto.nombre}</h2>
                             <img src={producto.imagen} alt={producto.nombre} width="150"/>
-                            <p>Precio: ${producto.precio}</p>
+                            <p>Precio: {formatearMonto(producto.precio)}</p>
                         </div>
                     </Link>
                 ))}

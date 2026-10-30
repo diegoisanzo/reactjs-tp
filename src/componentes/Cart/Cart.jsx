@@ -1,9 +1,10 @@
 import {useCart} from "../../context/useCart.js";
 import {Link} from "react-router-dom";
+import {formatearMonto} from "../../utils/formatearMonto.js";
 
 const Cart = () => {
     // 2. Obtenemos el estado 'cart' y las funciones que necesitemos del contexto
-    const { cart, clearCart, getCartTotal } = useCart();
+    const {cart, clearCart, getCartTotal} = useCart();
     // Si el carrito está vacío, mostramos un mensaje
     if (cart.length === 0) {
         return (
@@ -25,12 +26,12 @@ const Cart = () => {
                 <div key={item.id} className="cart-item">
                     <h4>{item.nombre}</h4>
                     <p>Cantidad: {item.quantity}</p>
-                    <p>Precio unitario: ${item.precio}</p>
-                    <p>Subtotal: ${item.precio * item.quantity}</p>
+                    <p>Precio unitario: {formatearMonto(item.precio)}</p>
+                    <p>Subtotal: {formatearMonto(item.precio * item.quantity)}</p>
                 </div>
             ))}
             <hr />
-            <h3>Total a pagar: ${getCartTotal()}</h3>
+            <h3>Total a pagar: {formatearMonto(getCartTotal())}</h3>
             <button onClick={clearCart}>Vaciar Carrito</button>
             <Link to="/"
                   onClick={() => alert("Gracias por comprar")}
