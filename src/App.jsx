@@ -2,7 +2,6 @@ import {Layout} from "./componentes/Layout/Layout.jsx";
 import {ItemListContainer} from "./componentes/ItemListContainer/ItemListContainer.jsx";
 import './App.css'
 import './bootstrap.min.css';
-import {FormularioContainer} from "./componentes/FormularioContainer/FormularioContainer.jsx";
 import {Route, Routes} from "react-router-dom";
 import Productos from "./componentes/Productos/Productos.jsx";
 import ProductoDetalle from "./componentes/Productos/ProductoDetalle/ProductoDetalle.jsx";
