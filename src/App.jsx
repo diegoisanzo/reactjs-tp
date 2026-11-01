@@ -9,6 +9,7 @@ import Inicio from "./componentes/Inicio/Inicio.jsx";
 import Cart from "./componentes/Cart/Cart.jsx";
 import Gestion from "./componentes/Gestion/Gestion.jsx";
 import GestionDescuentos from "./componentes/GestionDescuentos/GestionDescuentos.jsx";
+import NoEncontrado from "./componentes/NoEncontrado/NoEncontrado.jsx";
 
 // TODOS:
 // TODO: Clase 10, hacer un crud de cupones de descuento
@@ -117,6 +118,8 @@ function App() {
 
                   <Route path="/gestion" element={<Gestion />} />
                   <Route path="/gestion-descuentos" element={<GestionDescuentos />} />
+
+                  <Route path="*" element={<NoEncontrado />} />
               </Route>
           </Routes>
       </div>
