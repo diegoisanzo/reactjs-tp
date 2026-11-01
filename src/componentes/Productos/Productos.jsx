@@ -3,7 +3,7 @@ import styles from './Productos.module.css'
 import {Link} from "react-router-dom";
 import {formatearMonto} from "../../utils/formatearMonto.js";
 
-function Productos({Mensaje}) {
+function Productos({mensaje}) {
     const [productos, setProductos] = useState([]);
     const [error, setError] = useState(null);
     const [cargando, setCargando] = useState(true);
@@ -34,7 +34,7 @@ function Productos({Mensaje}) {
     }
     return (
         <div >
-            <h1>{Mensaje}</h1>
+            <h1>{mensaje}</h1>
             <ul className={styles.productosDetalle}>
                 {productos.map((producto) => (
                     <Link key={producto.id} to={`/producto/${producto.id}`}>

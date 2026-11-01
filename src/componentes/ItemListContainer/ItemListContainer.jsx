@@ -3,7 +3,7 @@ import ItemList from '../ItemList/ItemList';
 import styles from './ItemListContainer.module.css'
 import {useEffect, useState} from "react";
 
-export function ItemListContainer({ Mensaje }) {
+export function ItemListContainer({ mensaje }) {
     const [productos, setProductos] = useState([]);
     const [error, setError] = useState(null);
     const [cargando, setCargando] = useState(true);
@@ -37,7 +37,7 @@ export function ItemListContainer({ Mensaje }) {
 
     return (
         <div className="container">
-            <h2 className={`${styles.subtitulo} h2`}>{Mensaje}</h2>
+            <h2 className={`${styles.subtitulo} h2`}>{mensaje}</h2>
             <div className={`${styles.container}`}>
                 <ItemList productos={productos} mensaje={"Black Friday*"}/>
             </div>
