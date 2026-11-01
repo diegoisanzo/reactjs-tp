@@ -26,3 +26,13 @@ dist-ssr
 
 #misc
 .env*
+
+# AI assistant instructions
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+GEMINI.md
+.github/copilot-instructions.md
+.cursorrules
+.windsurfrules
+.clinerules
