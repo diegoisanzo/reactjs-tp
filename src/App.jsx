@@ -119,7 +119,7 @@ function App() {
                   <Route path="/gestion" element={<Gestion />} />
                   <Route path="/gestion-descuentos" element={<GestionDescuentos />} />
               </Route>
-          </Routes>);
+          </Routes>
       </div>
   );
 
