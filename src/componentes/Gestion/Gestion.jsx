@@ -158,6 +158,7 @@ const Gestion = () => {
             </button>
             <hr/>
             <h3>Lista de Productos</h3>
+            {/* TODO: reemplazar con <ListadoProductos productos={productos}/> */}
             <ul>
                 {productos.map((prod) => (
                     <li key={prod.id}>
