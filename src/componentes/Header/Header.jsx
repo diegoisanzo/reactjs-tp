@@ -17,6 +17,7 @@ function Header() {
                 <li><Link className="nav-link" to="/destacados">Destacados</Link></li>
                 <li><Link className="nav-link" to="/carrito">🛒 Carrito{totalItems > 0 &&
                     <span>({totalItems})</span>}</Link></li>
+                <li><Link className="nav-link" to="/nosotros">Nosotros</Link></li>
                 <li><Link className="nav-link" to="/gestion">Gesti&oacute;n de Productos</Link></li>
                 <li><Link className="nav-link" to="/gestion-cupones">Gesti&oacute;n de Cupones</Link></li>
             </nav>

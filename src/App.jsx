@@ -10,6 +10,7 @@ import Cart from "./componentes/Cart/Cart.jsx";
 import Gestion from "./componentes/Gestion/Gestion.jsx";
 import GestionCupones from "./componentes/GestionCupones/GestionCupones.jsx";
 import NoEncontrado from "./componentes/NoEncontrado/NoEncontrado.jsx";
+import Nosotros from "./componentes/Nosotros/Nosotros.jsx";
 
 // TODOS:
 // TODO: Clase 10, hacer un crud de cupones de descuento
@@ -115,6 +116,7 @@ function App() {
                   <Route path="/destacados" element={<Productos mensaje={"Productos destacados"}/>} />
                   <Route path="/producto/:id" element={<ProductoDetalle />} />
                   <Route path="/carrito" element={<Cart />} />
+                  <Route path="/nosotros" element={<Nosotros />} />
 
                   <Route path="/gestion" element={<Gestion />} />
                   <Route path="/gestion-cupones" element={<GestionCupones />} />
