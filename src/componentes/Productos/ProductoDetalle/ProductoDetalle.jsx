@@ -1,28 +1,35 @@
-import {useState, useEffect} from 'react';
-import {Link, useParams} from 'react-router-dom';
-import {formatearMonto} from "../../../utils/formatearMonto.js";
+import { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { readProductoPorId } from '../../../services/productoServices.js';
+import { formatearMonto } from '../../../utils/formatearMonto.js';
 
 const ProductoDetalle = () => {
-    const {id} = useParams();
-    const idDeProductoAEncontrar = parseInt(id);
-
+    const { id } = useParams();
     const [producto, setProducto] = useState(null);
+    const [cargando, setCargando] = useState(true);
 
     useEffect(() => {
-        fetch('/data/productos.json')
-            .then(response => response.json())
-            .then(data => {
-                const productoEncontrado = data.find(p => p.id === idDeProductoAEncontrar);
-                setProducto(productoEncontrado);
-            })
-            .catch(error => console.error("Error al cargar el producto:", error));
+        const obtenerProducto = async () => {
+            setCargando(true);
+            try {
+                const encontrado = await readProductoPorId(id);
+                setProducto(encontrado);
+            } catch (error) {
+                console.error('Error al cargar el producto:', error);
+                setProducto(null);
+            } finally {
+                setCargando(false);
+            }
+        };
+
+        obtenerProducto();
     }, [id]);
 
-    if (!producto) {
+    if (cargando) {
         return <h2>Cargando detalle del producto...</h2>;
     }
 
-    if (!producto.id) {
+    if (!producto) {
         return <h2>Producto no encontrado.</h2>;
     }
 

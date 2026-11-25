@@ -1,37 +1,9 @@
 import { useState, useEffect } from 'react';
 // Importaciones clave de Firebase
-import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
+import { readProductos } from '../../services/productoServices.js';
 import {formatearMonto} from "../../utils/formatearMonto.js";
-
-const poblarProductosNacionales = async () => {
-    try {
-        const coleccion = 'Productos nacionales';
-
-        const respuesta = await fetch('/data/productos.json');
-
-        if (!respuesta.ok) {
-            throw new Error(`Error HTTP: ${respuesta.status}`);
-        }
-
-        const productos = await respuesta.json();
-
-        for (const item of productos) {
-            const { id, ...data } = item;
-            const docRef = doc(db, coleccion, String(id));
-
-            // setDoc sobreescribe el documento si ya existe con ese ID exacto
-            await setDoc(docRef, {
-                ...data,
-                id: Number(id)
-            }, { merge: true });
-        }
-
-        console.log('Carga completada con éxito.');
-    } catch (error) {
-        console.error('Error al poblar la colección:', error);
-    }
-};
 
 const poblarEquipo = async () => {
     try {
@@ -64,22 +36,21 @@ const poblarEquipo = async () => {
 
 
 const ProductosNacionales = () => {
-// Estado para guardar los productos que traigamos de la DB
     const [productos, setProductos] = useState([]);
+
     useEffect(() => {
-        poblarProductosNacionales()
-            .then(poblarEquipo)
-            .then(() => {
-            const productosDB = collection(db, "Productos nacionales");
-            getDocs(productosDB).then((resp) => {
-                setProductos(
-                    resp.docs.map((doc) => {
-                        return {...doc.data(), id: doc.id}
-                    })
-                );
-            });
-        });
-    }, []); // El array vacío asegura que este efecto se ejecute solo una vez
+        const obtenerProductos = async () => {
+            try {
+                await poblarEquipo();
+                const datos = await readProductos();
+                setProductos(datos);
+            } catch (error) {
+                console.error('Error al cargar productos nacionales:', error);
+            }
+        };
+
+        obtenerProductos();
+    }, []);
 
     return (
         <div>

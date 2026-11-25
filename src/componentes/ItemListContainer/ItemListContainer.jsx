@@ -1,7 +1,7 @@
-// En /componentes/ItemListContainer/ItemListContainer.jsx
 import ItemList from '../ItemList/ItemList';
-import styles from './ItemListContainer.module.css'
-import {useEffect, useState} from "react";
+import styles from './ItemListContainer.module.css';
+import { useEffect, useState } from 'react';
+import { readProductos } from '../../services/productoServices.js';
 
 export function ItemListContainer({ mensaje }) {
     const [productos, setProductos] = useState([]);
@@ -9,22 +9,18 @@ export function ItemListContainer({ mensaje }) {
     const [cargando, setCargando] = useState(true);
 
     useEffect(() => {
-        fetch('/data/productos.json')
-            .then((respuesta) => {
-                if (!respuesta.ok) {
-                    throw new Error('No se pudo cargar la información de los productos');
-                }
-                return respuesta.json();
-            })
-            .then((datos) => {
+        const obtenerProductos = async () => {
+            try {
+                const datos = await readProductos();
                 setProductos(datos);
-            })
-            .catch((error) => {
-                setError(error.message);
-            })
-            .finally(() => {
+            } catch (err) {
+                setError(err.message);
+            } finally {
                 setCargando(false);
-            });
+            }
+        };
+
+        obtenerProductos();
     }, []);
 
     if (cargando) {
