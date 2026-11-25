@@ -8,7 +8,7 @@ import ProductoDetalle from "./componentes/Productos/ProductoDetalle/ProductoDet
 import Inicio from "./componentes/Inicio/Inicio.jsx";
 import Cart from "./componentes/Cart/Cart.jsx";
 import Gestion from "./componentes/Gestion/Gestion.jsx";
-import GestionDescuentos from "./componentes/GestionDescuentos/GestionDescuentos.jsx";
+import GestionCupones from "./componentes/GestionCupones/GestionCupones.jsx";
 import NoEncontrado from "./componentes/NoEncontrado/NoEncontrado.jsx";
 
 // TODOS:
@@ -117,7 +117,7 @@ function App() {
                   <Route path="/carrito" element={<Cart />} />
 
                   <Route path="/gestion" element={<Gestion />} />
-                  <Route path="/gestion-descuentos" element={<GestionDescuentos />} />
+                  <Route path="/gestion-cupones" element={<GestionCupones />} />
 
                   <Route path="*" element={<NoEncontrado />} />
               </Route>
