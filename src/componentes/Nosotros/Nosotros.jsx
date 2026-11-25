@@ -1,27 +1,25 @@
-import {useState, useEffect} from 'react';
-import styles from './Nosotros.module.css'
+import { useState, useEffect } from 'react';
+import styles from './Nosotros.module.css';
+import { readEquipo } from '../../services/equipoServices.js';
 
 function Nosotros() {
     const [nosotros, setNosotros] = useState([]);
     const [error, setError] = useState(null);
     const [cargando, setCargando] = useState(true);
+
     useEffect(() => {
-        fetch('/data/nosotros.json')
-            .then((respuesta) => {
-                if (!respuesta.ok) {
-                    throw new Error('No se pudo cargar la información del equipo');
-                }
-                return respuesta.json();
-            })
-            .then((datos) => {
+        const obtenerEquipo = async () => {
+            try {
+                const datos = await readEquipo();
                 setNosotros(datos);
-            })
-            .catch((error) => {
-                setError(error.message);
-            })
-            .finally(() => {
+            } catch (err) {
+                setError(err.message);
+            } finally {
                 setCargando(false);
-            });
+            }
+        };
+
+        obtenerEquipo();
     }, []);
     if (cargando) {
         return <p className="lead">Cargando equipo...</p>;

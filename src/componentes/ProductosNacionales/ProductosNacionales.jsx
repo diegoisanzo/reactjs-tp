@@ -1,39 +1,6 @@
 import { useState, useEffect } from 'react';
-// Importaciones clave de Firebase
-import { doc, setDoc } from 'firebase/firestore';
-import { db } from '../../firebase/config';
 import { readProductos } from '../../services/productoServices.js';
-import {formatearMonto} from "../../utils/formatearMonto.js";
-
-const poblarEquipo = async () => {
-    try {
-        const coleccion = 'Equipo';
-
-        const respuesta = await fetch('/data/nosotros.json');
-
-        if (!respuesta.ok) {
-            throw new Error(`Error HTTP: ${respuesta.status}`);
-        }
-
-        const equipo = await respuesta.json();
-
-        for (const item of equipo) {
-            const { id, ...data } = item;
-            const docRef = doc(db, coleccion, String(id));
-
-            // setDoc sobreescribe el documento si ya existe con ese ID exacto
-            await setDoc(docRef, {
-                ...data,
-                id: Number(id)
-            }, { merge: true });
-        }
-
-        console.log('Carga completada con éxito.');
-    } catch (error) {
-        console.error('Error al poblar la colección:', error);
-    }
-};
-
+import { formatearMonto } from '../../utils/formatearMonto.js';
 
 const ProductosNacionales = () => {
     const [productos, setProductos] = useState([]);
@@ -41,7 +8,6 @@ const ProductosNacionales = () => {
     useEffect(() => {
         const obtenerProductos = async () => {
             try {
-                await poblarEquipo();
                 const datos = await readProductos();
                 setProductos(datos);
             } catch (error) {
