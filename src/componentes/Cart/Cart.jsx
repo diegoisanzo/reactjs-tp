@@ -37,7 +37,11 @@ const Cart = () => {
             <h3>Total a pagar: {formatearMonto(getCartTotal())}</h3>
             <button onClick={clearCart}>Vaciar Carrito</button>
             <Link to="/"
-                  onClick={() => alert("Gracias por comprar")}
+                  onClick={() => {
+                        alert("Gracias por comprar");
+                        clearCart();
+                      }
+                  }
                   className="btn-finalizar">
                 Finalizar Compra
             </Link>
