@@ -64,22 +64,9 @@ const GestionCupones = () => {
     const manejarEnvio = async (evento) => {
         evento.preventDefault();
 
-        const codigoLimpio = datosForm.codigo.trim();
-        const porcentajeNumerico = Number(datosForm.porcentaje);
-
-        if (
-            codigoLimpio === '' ||
-            !Number.isFinite(porcentajeNumerico) ||
-            porcentajeNumerico <= 0 ||
-            porcentajeNumerico > 100
-        ) {
-            alert('Por favor, ingrese un código válido y un porcentaje mayor a 0 y hasta 100.');
-            return;
-        }
-
         const cuponFinal = {
-            codigo: codigoLimpio,
-            porcentaje: porcentajeNumerico,
+            codigo: datosForm.codigo.trim(),
+            porcentaje: Number(datosForm.porcentaje),
         };
 
         try {

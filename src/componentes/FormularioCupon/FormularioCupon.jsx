@@ -27,6 +27,7 @@ function FormularioCupon({
                     name="codigo"
                     value={datosForm.codigo}
                     onChange={manejarCambio}
+                    required
                 />
             </div>
             <div>
@@ -34,13 +35,14 @@ function FormularioCupon({
                 <input
                     id="cupon-porcentaje"
                     type="number"
-                    min="0.1"
+                    min="1"
                     max="100"
                     step="any"
                     placeholder="Ej: 10"
                     name="porcentaje"
                     value={datosForm.porcentaje}
                     onChange={manejarCambio}
+                    required
                 />
             </div>
             <button type="submit">
