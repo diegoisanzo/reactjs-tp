@@ -4,7 +4,7 @@ import {formatearMonto} from "../../utils/formatearMonto.js";
 
 const Cart = () => {
     // 2. Obtenemos el estado 'cart' y las funciones que necesitemos del contexto
-    const {cart, clearCart, getCartTotal} = useCart();
+    const {cart, clearCart, getCartTotal, removeItem} = useCart();
     // Si el carrito está vacío, mostramos un mensaje
     if (cart.length === 0) {
         return (
@@ -28,6 +28,9 @@ const Cart = () => {
                     <p>Cantidad: {item.quantity}</p>
                     <p>Precio unitario: {formatearMonto(item.precio)}</p>
                     <p>Subtotal: {formatearMonto(item.precio * item.quantity)}</p>
+                    <button type="button" onClick={() => removeItem(item.id)}>
+                        Eliminar ❌️
+                    </button>
                 </div>
             ))}
             <hr />
