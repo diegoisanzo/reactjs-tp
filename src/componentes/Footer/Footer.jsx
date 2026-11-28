@@ -1,6 +1,6 @@
 import styles from './Footer.module.css'
 
-function Footer() {
+export function Footer() {
     const currentYear = new Date().getFullYear().toString(10);
 
     return (
@@ -9,5 +9,3 @@ function Footer() {
         </footer>
     );
 }
-
-export default Footer;

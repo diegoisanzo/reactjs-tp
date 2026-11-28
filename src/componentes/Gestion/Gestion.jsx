@@ -2,10 +2,10 @@ import {useEffect, useState} from 'react';
 import {db} from '../../firebase/config';
 import {addDoc, collection, deleteDoc, doc, getDocs, updateDoc} from "firebase/firestore";
 //import {FormularioContainer} from "../FormularioContainer/FormularioContainer.jsx";
-import FormularioProducto from "../FormularioProducto/FormularioProducto.jsx";
+import { FormularioProducto } from "../FormularioProducto/FormularioProducto.jsx";
 import {formatearMonto} from "../../utils/formatearMonto.js";
 
-const Gestion = () => {
+export const Gestion = () => {
     const [productos, setProductos] = useState([]);
     const estadoInicialForm = {
         nombre: "",
@@ -175,4 +175,3 @@ const Gestion = () => {
         </div>
     );
 };
-export default Gestion;

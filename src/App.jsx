@@ -3,14 +3,14 @@ import {ItemListContainer} from "./componentes/ItemListContainer/ItemListContain
 import './bootstrap.min.css';
 import './App.css'
 import {Route, Routes} from "react-router-dom";
-import Productos from "./componentes/Productos/Productos.jsx";
-import ProductoDetalle from "./componentes/Productos/ProductoDetalle/ProductoDetalle.jsx";
-import Inicio from "./componentes/Inicio/Inicio.jsx";
-import Cart from "./componentes/Cart/Cart.jsx";
-import Gestion from "./componentes/Gestion/Gestion.jsx";
-import GestionCupones from "./componentes/GestionCupones/GestionCupones.jsx";
-import NoEncontrado from "./componentes/NoEncontrado/NoEncontrado.jsx";
-import Nosotros from "./componentes/Nosotros/Nosotros.jsx";
+import { Productos } from "./componentes/Productos/Productos.jsx";
+import { ProductoDetalle } from "./componentes/Productos/ProductoDetalle/ProductoDetalle.jsx";
+import { Inicio } from "./componentes/Inicio/Inicio.jsx";
+import { Cart } from "./componentes/Cart/Cart.jsx";
+import { Gestion } from "./componentes/Gestion/Gestion.jsx";
+import { GestionCupones } from "./componentes/GestionCupones/GestionCupones.jsx";
+import { NoEncontrado } from "./componentes/NoEncontrado/NoEncontrado.jsx";
+import { Nosotros } from "./componentes/Nosotros/Nosotros.jsx";
 
 // TODOS:
 // TODO: Clase 10, hacer un crud de cupones de descuento
@@ -105,7 +105,7 @@ correcto.
 - ver de usar display: flex
  */
 
-function App() {
+export function App() {
 
   return (
       <div className="container">
@@ -128,5 +128,3 @@ function App() {
   );
 
 }
-
-export default App;

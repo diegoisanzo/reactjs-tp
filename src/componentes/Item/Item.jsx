@@ -11,7 +11,7 @@ function Favorito({esFavorito, onclick}) {
                 </span>;
 }
 
-function Item({id, nombre, precio, stock, imagen}) {
+export function Item({id, nombre, precio, stock, imagen}) {
     const [esFavorito, setFavorito] = useState(false);
     const marcarODesmarcarComoFavorito = () => {
         setFavorito(!esFavorito);
@@ -65,5 +65,3 @@ function Item({id, nombre, precio, stock, imagen}) {
         </div>
     );
 }
-
-export default Item;

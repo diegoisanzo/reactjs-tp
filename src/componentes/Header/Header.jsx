@@ -2,7 +2,7 @@ import styles from './Header.module.css'
 import {Link} from "react-router-dom";
 import {useCart} from "../../context/useCart.js";
 
-function Header() {
+export function Header() {
 
     const { getCartQuantity } = useCart();
     const totalItems = getCartQuantity();
@@ -24,5 +24,3 @@ function Header() {
         </header>
     );
 }
-
-export default Header;

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './Nosotros.module.css';
 import { readEquipo } from '../../services/equipoServices.js';
 
-function Nosotros() {
+export function Nosotros() {
     const [nosotros, setNosotros] = useState([]);
     const [error, setError] = useState(null);
     const [cargando, setCargando] = useState(true);
@@ -43,5 +43,3 @@ function Nosotros() {
         </div>
     );
 }
-
-export default Nosotros;

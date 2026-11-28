@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { db } from '../../firebase/config';
 import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
-import FormularioCupon from '../FormularioCupon/FormularioCupon.jsx';
+import { FormularioCupon } from '../FormularioCupon/FormularioCupon.jsx';
 import { formatearPorcentaje } from '../../utils/formatearPorcentaje.js';
 
 const COLECCION_CUPONES = 'Cupones';
@@ -11,7 +11,7 @@ const ESTADO_INICIAL_FORM = {
     porcentaje: '',
 };
 
-const GestionCupones = () => {
+export const GestionCupones = () => {
     const [cupones, setCupones] = useState([]);
     const [datosForm, setDatosForm] = useState(ESTADO_INICIAL_FORM);
     const [cuponAEditar, setCuponAEditar] = useState(null);
@@ -139,5 +139,3 @@ const GestionCupones = () => {
         </div>
     );
 };
-
-export default GestionCupones;

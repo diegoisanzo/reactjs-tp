@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { readProductos } from '../../services/productoServices.js';
 import { formatearMonto } from '../../utils/formatearMonto.js';
 
-function Productos({ mensaje }) {
+export function Productos({ mensaje }) {
     const [productos, setProductos] = useState([]);
     const [error, setError] = useState(null);
     const [cargando, setCargando] = useState(true);
@@ -47,5 +47,3 @@ function Productos({ mensaje }) {
         </div>
     );
 }
-
-export default Productos;

@@ -1,11 +1,9 @@
 // import Productos from "../Productos/Productos.jsx";
-import ProductosNacionales from "../ProductosNacionales/ProductosNacionales.jsx";
+import { ProductosNacionales } from "../ProductosNacionales/ProductosNacionales.jsx";
 
-function Inicio() {
+export function Inicio() {
     return (<>
         <h1>Página de Inicio</h1>
         <ProductosNacionales/>
     </>);
 }
-
-export default Inicio;

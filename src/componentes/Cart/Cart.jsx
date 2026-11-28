@@ -2,7 +2,7 @@ import {useCart} from "../../context/useCart.js";
 import {Link} from "react-router-dom";
 import {formatearMonto} from "../../utils/formatearMonto.js";
 
-const Cart = () => {
+export const Cart = () => {
     // 2. Obtenemos el estado 'cart' y las funciones que necesitemos del contexto
     const {cart, clearCart, getCartTotal, removeItem} = useCart();
     // Si el carrito está vacío, mostramos un mensaje
@@ -48,5 +48,3 @@ const Cart = () => {
         </div>
     );
 };
-
-export default Cart;

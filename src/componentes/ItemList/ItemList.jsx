@@ -1,7 +1,7 @@
 import styles from './ItemList.module.css'
-import Item from '../Item/Item'
+import { Item } from '../Item/Item'
 
-function ItemList({ productos, mensaje }) {
+export function ItemList({ productos, mensaje }) {
     return (
         <>
             <h1>{mensaje}</h1>
@@ -17,5 +17,3 @@ function ItemList({ productos, mensaje }) {
         </>
     );
 }
-
-export default ItemList;

@@ -1,4 +1,4 @@
-import ItemList from '../ItemList/ItemList';
+import { ItemList } from '../ItemList/ItemList';
 import styles from './ItemListContainer.module.css';
 import { useEffect, useState } from 'react';
 import { readProductos } from '../../services/productoServices.js';

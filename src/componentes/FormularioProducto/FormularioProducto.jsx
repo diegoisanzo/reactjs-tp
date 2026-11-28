@@ -1,4 +1,4 @@
-function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen, modoEdicion, loading }) {
+export function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen, modoEdicion, loading }) {
     const formStyle = {
         display: 'flex',
         flexDirection: 'column',
@@ -69,5 +69,3 @@ function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCam
         </form>
     );
 }
-
-export default FormularioProducto;

@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { readProductoPorId } from '../../../services/productoServices.js';
 import { formatearMonto } from '../../../utils/formatearMonto.js';
 
-const ProductoDetalle = () => {
+export const ProductoDetalle = () => {
     const { id } = useParams();
     const [producto, setProducto] = useState(null);
     const [cargando, setCargando] = useState(true);
@@ -47,5 +47,3 @@ const ProductoDetalle = () => {
         </div>
     );
 };
-
-export default ProductoDetalle;

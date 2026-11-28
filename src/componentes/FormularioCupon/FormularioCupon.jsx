@@ -1,4 +1,4 @@
-function FormularioCupon({
+export function FormularioCupon({
     datosForm,
     manejarCambio,
     manejarEnvio,
@@ -51,5 +51,3 @@ function FormularioCupon({
         </form>
     );
 }
-
-export default FormularioCupon;

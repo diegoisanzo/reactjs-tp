@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import {beforeEach, describe, expect, it, vi} from 'vitest';
 import {cleanup, fireEvent, render, screen} from '@testing-library/react';
-import Item from "../../../componentes/Item/Item.jsx";
+import { Item } from "../../../componentes/Item/Item.jsx";
 import {MemoryRouter} from "react-router-dom";
 import {CartProvider} from "../../../context/CartProvider.jsx";
 

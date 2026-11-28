@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import FormularioProducto from "../FormularioProducto/FormularioProducto.jsx";
+import { FormularioProducto } from "../FormularioProducto/FormularioProducto.jsx";
 import {collection, getDocs, deleteDoc, updateDoc, doc, addDoc} from
         "firebase/firestore";
 import {db} from '../../firebase/config';

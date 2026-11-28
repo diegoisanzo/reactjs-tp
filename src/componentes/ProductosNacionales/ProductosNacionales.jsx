@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { readProductos } from '../../services/productoServices.js';
 import { formatearMonto } from '../../utils/formatearMonto.js';
 
-const ProductosNacionales = () => {
+export const ProductosNacionales = () => {
     const [productos, setProductos] = useState([]);
 
     useEffect(() => {
@@ -42,4 +42,3 @@ const ProductosNacionales = () => {
         </div>
     );
 };
-export default ProductosNacionales;
